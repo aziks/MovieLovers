@@ -1,8 +1,8 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pry'
 
-require_relative 'lib/movieslistquiz.rb'
-require_relative 'lib/movies.rb'
+require_relative 'lib/movielistquiz.rb'
 
 loadfilms = MovieList.new
 
@@ -12,6 +12,10 @@ end
 
 post "/movieslist" do
   titulo = params[:titulo]
-  @listaresultado = loadfilms.search_movies(titulo)
-  ereb(:show_films)
+
+  @peliculas = loadfilms.search_movies
+  # @listaresultado = loadfilms.search_movies(titulo)
+  # @peliculas = @listaresultado.movies
+  erb(:show_films)
+#binding.pry
 end
