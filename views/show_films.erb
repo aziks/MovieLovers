@@ -1,8 +1,22 @@
+<head>
+<style>
+
+
+
+
+</style>
+</head>
+
+
 <h1> QUIZ!!! </h1>
 
-<% @peliculas.each do |peli| %>
+<div id="centralbox" width=650px style="margin: 0 auto;">
 
-  <li><img src="<%= peli.poster %>"> </li>
+<% @pelis_poster.each do |peli| %>
 
-  </br>
+  <a><img src="<%= peli.poster %>" width=33% style="float:left;" > </a>
+
+
 <% end %>
+
+</div>

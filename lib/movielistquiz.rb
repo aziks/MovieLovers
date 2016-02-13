@@ -1,12 +1,12 @@
 require 'imdb'
 require 'pry'
+require_relative "./movies.rb"
 
 class MovieList
 
   attr_reader :nueve_peliculas_con_poster
 
   def initialize 
-    @pelis_con_poster = []
     @nueve_peliculas_con_poster = []
   end
 
@@ -17,11 +17,15 @@ class MovieList
 
     while @nueve_peliculas_con_poster.length < 9
     if lista_peliculas[i].poster != nil 
-      @nueve_peliculas_con_poster << lista_peliculas[i]
+        @nueve_peliculas_con_poster << Movie.new(
+        lista_peliculas[i].title,
+        lista_peliculas[i].poster,
+        lista_peliculas[i].year)
+        # binding.pry
     end
     i += 1
   end
-# binding.pry
+
 
 end
 end

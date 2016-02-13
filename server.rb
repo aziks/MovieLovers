@@ -13,9 +13,10 @@ end
 post "/movieslist" do
   titulo = params[:titulo]
 
-  @peliculas = loadfilms.search_movies
-  # @listaresultado = loadfilms.search_movies(titulo)
-  # @peliculas = @listaresultado.movies
+  loadfilms.search_movies(titulo)
+
+  @pelis_poster = loadfilms.nueve_peliculas_con_poster
+
   erb(:show_films)
 #binding.pry
 end
